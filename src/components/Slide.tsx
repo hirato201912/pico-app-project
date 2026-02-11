@@ -100,7 +100,7 @@ export default function Slide({ slide, direction }: SlideProps) {
       className={`absolute inset-0 ${bgClass} flex flex-col`}
     >
       {/* Speaker Notes Toggle */}
-      <SpeakerNotes notes={slide.speakerNotes} />
+      <SpeakerNotes notes={slide.speakerNotes} transitionNote={slide.transitionNote} />
 
       {isLastSlide ? (
         <LastSlide slide={slide} />

@@ -6,9 +6,10 @@ import { StickyNote, X } from "lucide-react";
 
 interface SpeakerNotesProps {
   notes: string;
+  transitionNote?: string;
 }
 
-export default function SpeakerNotes({ notes }: SpeakerNotesProps) {
+export default function SpeakerNotes({ notes, transitionNote }: SpeakerNotesProps) {
   const [isOpen, setIsOpen] = useState(false);
 
   return (
@@ -38,6 +39,14 @@ export default function SpeakerNotes({ notes }: SpeakerNotesProps) {
             </div>
             <div className="p-4 text-sm leading-relaxed text-foreground/80 overflow-y-auto flex-1">
               {notes}
+              {transitionNote && (
+                <div className="mt-4 pt-3 border-t-2 border-dashed border-primary/30">
+                  <p className="text-xs font-bold text-primary mb-1">▶ 次のスライドへのつなぎ</p>
+                  <p className="text-sm text-primary/90 font-medium leading-relaxed">
+                    {transitionNote}
+                  </p>
+                </div>
+              )}
             </div>
           </motion.div>
         )}
