@@ -163,6 +163,28 @@ export default function Slide({ slide, direction }: SlideProps) {
               </motion.p>
             ))}
           </div>
+
+          {/* Key Points Badges */}
+          {slide.keyPoints && slide.keyPoints.length > 0 && (
+            <motion.div
+              initial={{ opacity: 0, y: 10 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ delay: 0.45 }}
+              className="flex flex-wrap justify-center gap-2 mt-6"
+            >
+              {slide.keyPoints.map((kp, i) => (
+                <motion.span
+                  key={i}
+                  initial={{ opacity: 0, scale: 0.85 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ delay: 0.5 + i * 0.08 }}
+                  className="bg-primary/10 text-primary border border-primary/25 rounded-full px-4 py-1.5 text-sm md:text-base font-bold"
+                >
+                  ◆ {kp}
+                </motion.span>
+              ))}
+            </motion.div>
+          )}
         </div>
       )}
 
